@@ -1,12 +1,11 @@
 {
     "name": "Template 404",
-    "layout": "custom_theme",
-    "wrapper": "div.class-404",
     "sections": {
-        "Template-404" :{
-            "type": "example-404"
+        "template" :{
+            "type": "template-404"
         }
     },
-    "order": ["template-404"]
+    "order": [
+        "template"]
 
 }
