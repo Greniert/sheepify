@@ -1,0 +1,53 @@
+
+<div class="max-w-md">
+    <div class="text-5xl font-bold my-4">
+        <h1>{{ section.settings.title }}</h1>
+    </div>
+    <div class="my-4">
+        <p class="text-base md:text-xl leading-normal">{{ section.settings.subtext_title }}</p>
+    </div>
+    <div class="my-4">
+        {% if section.settings.back_to_home_link == blank %}
+            {% assign shop_url = shop.secure_url %}
+        {% else %}
+            {% assign shop_url = section.settings.back_to_home_link %}
+        {% endif %}
+        <a href="{{ shop_url }}" class="bg-black text-white px-4 py-2 rounded-md hover:bg-white hover:border-black  border-2 hover:text-black transition-all duration-300">{{ section.settings.back_to_home }}</a>
+    </div> 
+</div>
+
+{% schema %}
+    {
+        "name": "Template 404",
+        "tag" : "section",
+        "class": "flex items-center justify-center h-screen text-center py-7 h-screen",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "404 Heading Title",
+                "default": "404"
+            },
+            {
+                "type": "richtext",
+                "id": "subtext_title",
+                "label": "Subtext",
+                "default": "<p>Sorry, the page you are looking for cannot be found</p>"
+            },
+            {
+                "type": "text",
+                "id": "back_to_home",
+                "label": "button text",
+                "default": "back to home"
+            },
+            {
+                "type": "url",
+                "id": "back_to_home_link",
+                "label": "button link",
+                "default": "/"
+            }
+
+        ],
+        "presets": []
+    }
+{% endschema %}
