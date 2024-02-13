@@ -11,7 +11,7 @@
                 <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }} </time>
             {% endif %}
         {% when 'featured_image' %}
-            <img width="" height="" src="{{ article.image | image_url: "large"}}" alt="{{ article.image.alt }}">
+            <img height="" width="" src="{{ article.image | image_url: width: 450 }}" alt="{{ article.image.alt }}">
         {% when 'article_content' %}
             <div class="article-content">
                 {{ article.content }}
@@ -21,6 +21,8 @@
     {% endcase %}
     
 {% endfor %}   
+
+<time class="bg-black text-white" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }} </time>
 
 {% schema %}
     {

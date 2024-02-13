@@ -1,45 +1,7 @@
 {
   "sections": {
     "template": {
-      "type": "template-article",
-      "blocks": {
-        "title": {
-          "type": "article_title",
-          "settings": {
-          }
-        },
-        "thumbnail": {
-          "type": "featured_image",
-          "settings": {
-          }
-        },
-        "article_author": {
-          "type": "article_author",
-          "settings": {
-          }
-        },
-        "article_published_date_KmLb43": {
-          "type": "article_published_date",
-          "settings": {
-          }
-        },
-        "article_content_FiyyA6": {
-          "type": "article_content",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "title",
-        "thumbnail",
-        "article_author",
-        "article_published_date_KmLb43",
-        "article_content_FiyyA6"
-      ],
-      "settings": {
-        "enable_author": true,
-        "enable_published_date": true
-      }
+      "type": "template-article-2"
     }
   },
   "order": [
