@@ -1,13 +1,13 @@
-<article>
+<article class="py-8">
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'article_title' %}
+        <a href="{{ blog.url }}" class="text-base text-center uppercase text-gay-500 hover:text-gray-900 font-bold">{{ blog.title }}</a>
         <div class="flex item-center justify-center">
-            <a href="{{ blog.url }}" class="text-base uppercase text-gay-500 hover:text-gray-900 font-bold">{{ blog.title }}</a>
             <h1 class="text-4xl md:text-6xl font-medium">{{ article.title }}</h1>
         </div>
       {% when 'article_author' %}
-        <div class="flex item-center justify_author">
+        <div class="flex item-center justify_center">
             <div class="max-w-7xl text-center">
                 {% if section.settings.enable_author %}
                     <small>{{ article.author }}</small>
@@ -26,7 +26,7 @@
        
       {% when 'featured_image' %}
 
-        <div class="max-w-7xl bg-blue-100 rounded-lg md:mx-auto overflow-hidden">
+        <div class="max-w-7xl container bg-blue-100 rounded-lg md:mx-auto overflow-hidden my-4">
             {% if article.image != blank %}
                 <img class="w-full h-80 md:h-96 object-cover object-center" height="" width="" src="{{ article.image | image_url: width: 450 }}" alt="{{ article.image.alt }}">
             {% else %}
@@ -36,7 +36,7 @@
         </div>
         
       {% when 'article_content' %}
-        <div class="article-content">
+        <div class="article-content container">
           {{ article.content }}
         </div>
     {% else %}
