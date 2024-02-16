@@ -1,5 +1,9 @@
 {
   "current": {
+    "checkout_logo_image": "shopify:\/\/shop_images\/sheeplogo.png",
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
