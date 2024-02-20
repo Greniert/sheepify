@@ -1,13 +1,18 @@
 {% assign main_menu_linklist = linklists[section.settings.menu].links %}
 
-<div class="relative bg-white" x-data="{ mobileMenuOpen: false }">
+<div class="relative h-full w-full rounded-xl bg-white/30 shadow-lg ring-1 ring-black/5 " x-data="{ mobileMenuOpen: false }">
     <div class="mx-auto px-4 sm:px-6">
-      <div class="flex justify-between md:justify-start items-center py-6  md:space-x-10">
+      <div class="flex justify-between md:justify-start items-center py-3  md:space-x-10">
         <!-- STORE NAME / STORE LOGO -->
         <div class="flex justify-start  truncate">
-          <h1 class="text-xl font-bold truncate">{{ section.settings.mobile_menu_title }}</h1>
+        {% if section.settings.logo %}
+            <img width="" height="" src="{{ section.settings.logo | img_url: '100px' }}" alt="">
+        {% else %}
+            <h1 class="text-xl font-bold truncate">{{ section.settings.mobile_menu_title }}</h1>    
+        {% endif %}
+          
         </div>
-        <div class="-mr-2 -my-2 ml-3 md:hidden">
+        <div class="mr-2 my-2 ml-3 md:hidden">
             <button x-on:click="mobileMenuOpen = true" type="button" class="bg-white p-2 inline-flex items-center justify-center focus:outline-none">
                 {% render 'icon-menu' %}
             </button>
@@ -20,7 +25,7 @@
                     {% assign link_handle = link.handle | replace: '-', '_' %}
                     <div x-data:="{ {{ link_handle }}: false }" class="relative">
 
-                        <button x-on:click="{{ link_handle }} = ! {{ link_handle }}" type="button" class="inline-flex items-center text-base text-gray-500 hover:text-gray-900">
+                        <button x-on:click="{{ link_handle }} = ! {{ link_handle }}" type="button" class="inline-flex items-center text-base text-white hover:text-gray-100">
                           {{ link.title }} 
                           {% render 'icon-dropdown' %}
                         </button>
@@ -44,20 +49,20 @@
                     </div>
                     {% else %}
                     <div class="relative">
-                        <a href="{{ link.url }}" class="text-base text-gray-500 hover:text-gray-900">{{ link.title }}</a>
+                        <a href="{{ link.url }}" class="text-base text-white hover:text-gray-100">{{ link.title }}</a>
                     </div>  
                 {% endif %}
             {% endfor %}
         </nav>
   
         <div class="hidden md:flex items-center justify-end md:flex-1 space-x-5">
-          <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-base text-gray-500 hover:text-gray-900">
+          <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-base text-white hover:text-gray-100">
             {% render 'icon-shopping-bag' %}
           </a>
   
           {% if shop.customer_accounts_enabled  %}
-            <a href="{{ routes.account_login_url }} "  class="text-base text-gray-500 hover:text-gray-900">Login</a>
-            <a href="{{ routes.account_register_url }}" class="text-base text-gray-500 hover:text-gray-900">Register</a>
+            <a href="{{ routes.account_login_url }} "  class="text-base text-white hover:text-gray-100">Login</a>
+            <a href="{{ routes.account_register_url }}" class="text-base text-white hover:text-gray-100">Register</a>
           {% endif %}
          
         </div>
@@ -123,6 +128,11 @@
                 "label": "Title",
                 "default": "Menu",
                 "info": "This is the tiltle for header section"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "Logo"
             },
             {
                 "type": "link_list",
