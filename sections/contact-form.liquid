@@ -1,0 +1,79 @@
+<div class="flex flex-col item-center my-8">
+    {% if section.settings.title != blank %}
+        <h2 class=" text-3xl font-medium my-8 md:my-16 text-center">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% form 'contact' %}
+        <div class="flex flex-col px-4 justify-center max-w-3xl mx-auto">
+            <div class="flex px-1 mb-3 w-full">
+                <div class=" flex flex-col px-3 w-1/2">
+                    <label class="uppercase text-xs text-white font-medium" for="contact_name">Name</label>
+                    <input class="border bg-transparent text-white rounded-md border-white px-2 py-1" type="text" name="contact[name]" id="contact_name">
+                </div>
+                <div class="flex flex-col px-3 w-1/2">
+                    <label class="uppercase text-xs text-white font-medium" for="contact_email">Email Adresse</label>
+                    <input class="border bg-transparent text-white rounded-md border-white px-2 py-1" type="email" name="contact[email]" id="contact_email">
+                </div>
+            </div>
+            <div class="flex flex-col px-3 ">
+                <label class="uppercase text-xs text-white font-medium" for="contact_message">Message</label>
+                <textarea class="border bg-transparent text-white rounded-md border-white px-2 py-1" name="contact[body]" id="contact_message" ></textarea>
+            </div>
+            <div class="w-full flex justify-center pt-4 px-3">
+                <input class="border border-white text-white rounded-md px-2 py-1 hover:text-black hover:bg-white cursor-pointer"  type="submit" value="Submit message">
+            </div>
+            {% if form.errors %}
+                Oh no! Your message was not posted successfully. Please try again.
+    
+                <div class="border p-5">
+                  <div class="flex flex-row items-center w-full my-3">
+                    <div class="text-red-500">
+                      {% render 'icon-failed' %}
+                    </div>
+                    <div class="text-sm font-medium ml-3">
+                      Oh no your message was not posted successfully. Please try again.
+                    </div>
+                  </div>
+                  <ul class="px-4 mb-3 ml-7 list-decimal">
+                    {% for error in form.errors %}
+                      <li>
+                        <span class="">{{ form.errors.messages[error] }}</span>
+                      </li>
+    
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% elsif form.posted_successfully? %}
+    
+                <div class="flex flex-row item-ceter my-3 p-5">
+                  <div class="text-green-500">
+                    {% render 'icon-success' %}
+                  </div>
+                  <div class="text-sm font-medium ml-3">
+                    Your message has been send successfully.
+                  </div>
+                </div>
+              {% endif %}
+        </div>
+    
+        
+    {% endform %}
+</div>
+
+{% schema %}
+    {
+        "name": "Contact Form",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            }
+        ],
+        "presets": [
+            { 
+                "name": "contac Form"
+        
+            }
+        ]
+    }
+{% endschema %}
