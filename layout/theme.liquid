@@ -9,9 +9,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     {{ content_for_header }}
     <!-- Header hook for plugins -->
-    {{ 'application.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'application.js' | asset_url }}" defer></script>
-    
+    <link href="
+https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css
+" rel="stylesheet">
+    {{ 'app.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'app.js' | asset_url }}" defer></script>
+   
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   </head>

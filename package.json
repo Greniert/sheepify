@@ -4,13 +4,19 @@
   "description": "[![Generic badge](https://img.shields.io/badge/course%20available%3F-yes-green.svg)](https://shields.io/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "mix watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "postcss-cli": "^11.0.0",
     "swiper": "^11.0.6",
     "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "postcss-custom-properties": "^13.3.5",
+    "postcss-nesting": "^12.0.3"
   }
 }
