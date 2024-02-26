@@ -3,16 +3,20 @@
         <h1 class="text-3xl text-center title-collection">{{ collection.title }}</h1>
 
         <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ">
+            <ul id="" class="grid grid-cols-1 md:grid-cols-3 gap-4 ">
                 {% for product in collection.products %}
                    
-                    {% render 'product-card', product:product %}
+                    <li class="product-card">
+                        {% render 'product-card', product:product %}
+                    </li>
+                    
                                 
                 {% else %}
                     <p>There are no products inside of this collection</p>
                 {% endfor %}
-            </div>
+            </ul>
         </div>
+
         
 
         {% render 'pagination', pagination: paginate %}

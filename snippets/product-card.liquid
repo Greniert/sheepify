@@ -1,11 +1,14 @@
 
 
 <div class="atropos my-atropos">
+    <div class="handle bg-white absolute px-2 py-1 rounded-lg z-20 left-[-10px] top-0 add-cart">
+        {% render 'icon-move' %}
+    </div>
   <!-- scale container (required) -->
   {%  assign selected_variant = product.selected_or_first_available_variant %}
             {% form 'product', product %}
                 <input type="hidden" name="id" value="{{ selected_variant.id }}" />
-                <button type="submit" name="add" class="absolute bottom-0 right-0 z-20 px-6 py-4 bg-white text-black hover:border hover:border-black ">
+                <button type="submit" name="add" class="add-cart absolute bottom-0 right-0 z-20 px-6 py-4 bg-white text-black hover:border hover:border-black ">
                     Add to cart      
                 </button>
 

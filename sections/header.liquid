@@ -1,6 +1,6 @@
 {% assign main_menu_linklist = linklists[section.settings.menu].links %}
 
-<div class=" header-menu relative h-full w-full rounded-xl bg-white/30 shadow-lg ring-1 ring-black/5 backdrop-blur-[50px]" x-data="{ mobileMenuOpen: false }">
+<div class=" header-menu relative h-full w-full rounded-xl bg-white/30 shadow-lg ring-1 ring-black/5 backdrop-blur-[50px]" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
     <div class="mx-auto px-4 sm:px-6">
       <div class="flex justify-between md:justify-start items-center py-3  md:space-x-10">
         <!-- STORE NAME / STORE LOGO -->
@@ -56,6 +56,10 @@
         </nav>
   
         <div class="hidden md:flex items-center justify-end md:flex-1 space-x-5">
+
+        <button x-on:click="searchBarOpen = true" type="button" class="whitespace-nowrap text-base text-white hover:text-gray-100">
+            {% render 'icon-search' %}
+        </button>
           <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-base text-white hover:text-gray-100">
             {% render 'icon-shopping-bag' %}
           </a>
@@ -115,6 +119,28 @@
                 </div>
             </div>
         </div>
+    </div>
+
+
+    <div x-show="searchBarOpen" class="w-full absolute top-0 h-full  bg-white transition-all gap-4 px-4 rounded-lg">
+        
+        <div class="h-full flex justify-center items-center">
+            
+            <form class="relative flex" action="{{ routes.search_url }}" method="get">
+                <div class="relative px-10">
+                    <form action="{{ routes.search_url }}" method="get" class="flex-auto">
+                        <input type="search" name="q" placeholder="Search" class="w-60 p-2 border-2 border-gray-200 rounded-lg" placeholder="Search">
+                        <button type="submit" class="bg-white p-2 inline-flex items-center justify-center focus:outline-none">
+                            {% render 'icon-search' %}
+                        </button>
+                    </form>
+                </div>
+            </form> 
+        </div>
+            <button x-on:click="searchBarOpen = false" type="button" class="bg-white p-2 absolute top-0 right-0 mr-5 mt-5 focus:outline-none rounded-b-md rounded-l-md ">
+                {% render 'icon-close' %}
+            </button>
+               
     </div>
     
   </div>
