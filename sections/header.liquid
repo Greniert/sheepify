@@ -1,12 +1,12 @@
 {% assign main_menu_linklist = linklists[section.settings.menu].links %}
 
-<div class="relative h-full w-full rounded-xl bg-white/30 shadow-lg ring-1 ring-black/5 " x-data="{ mobileMenuOpen: false }">
+<div class=" header-menu relative h-full w-full rounded-xl bg-white/30 shadow-lg ring-1 ring-black/5 backdrop-blur-[50px]" x-data="{ mobileMenuOpen: false }">
     <div class="mx-auto px-4 sm:px-6">
       <div class="flex justify-between md:justify-start items-center py-3  md:space-x-10">
         <!-- STORE NAME / STORE LOGO -->
         <div class="flex justify-start  truncate">
         {% if section.settings.logo %}
-            <img width="" height="" src="{{ section.settings.logo | img_url: '100px' }}" alt="">
+            <img width="" height="" src="{{ section.settings.logo | img_url: '100px' }}" alt="" class="drop-shadow-sm	">
         {% else %}
             <h1 class="text-xl font-bold truncate">{{ section.settings.mobile_menu_title }}</h1>    
         {% endif %}
@@ -116,6 +116,7 @@
             </div>
         </div>
     </div>
+    
   </div>
 
   {% schema %}

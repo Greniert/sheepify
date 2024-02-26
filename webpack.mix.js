@@ -15,7 +15,7 @@ mix.webpackConfig({
     ] }
 });
 
-mix.js('src/js/app.js', 'assets');
+mix.js('src/js/app.js', 'assets');                                                                                                                                                                                                                                                          
 
 mix.postCss("src/css/app.css", "assets",[
     require('postcss-custom-properties')

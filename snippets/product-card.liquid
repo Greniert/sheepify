@@ -1,26 +1,48 @@
-<div class="w-full py-6 px-3">
-    <div class="border bg-white/20 ring-1 ring-black/5 shadow-md hover:shadow-lg rounded-lg overflow-hidden">
-        <a href="{{ product.url }}">
-            {% if product.featured_image %}
-                <div class="h-80 overflow-hidden">
-                    <img width="" height="" class="w-full h-full object-cover transition duration-300 ease-in-out hover:scale-105 transform" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}">
-                </div>
+
+
+<div class="atropos my-atropos">
+  <!-- scale container (required) -->
+  {%  assign selected_variant = product.selected_or_first_available_variant %}
+            {% form 'product', product %}
+                <input type="hidden" name="id" value="{{ selected_variant.id }}" />
+                <button type="submit" name="add" class="absolute bottom-0 right-0 z-20 px-6 py-4 bg-white text-black hover:border hover:border-black ">
+                    Add to cart      
+                </button>
+
+            {% endform %}
+  <div class="atropos-scale">
+    <!-- rotate container (required) -->
+    <div class="atropos-rotate">
+      <!-- inner container (required) -->
+
+        <div class="atropos-inner w-full py-6 px-3">
+            <div class="border relative bg-white/20 ring-1 ring-black/5 shadow-md hover:shadow-lg rounded-lg overflow-hidden">
+            
+                <a href="{{ product.url }}">
+                    {% if product.featured_image %}
+                        <div class="h-80 overflow-hidden">
+                            <img width="" height="" class="w-full h-full object-cover " src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}">
+                        </div>
+                        
+                    {% else %}
+                        <div class="h-80 overflow-hidden">
+                            {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100' }}
+                        </div>
+                    {% endif %}
                 
-            {% else %}
-                <div class="h-80 overflow-hidden">
-                    {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100' }}
-                </div>
-            {% endif %}
-        </a>
-        
-        <div class="flex flex-col p-4">
-            <span class="text-sm text-gray-100">{{ product.vendor }}</span>
+                
+                    <div class="flex flex-col p-4">
+                        <span class="text-sm text-gray-100">{{ product.vendor }}</span>
 
-            <a href="{{ product.url }}" class="text-black font-bold uppercase ">{{ product.title }}</a>
+                        <a href="{{ product.url }}" class="text-black font-bold uppercase ">{{ product.title }}</a>
 
-            <p class="text-back">{{ product.price | money }}</p>
+                        <p class="text-back">{{ product.price | money }}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
         </div>
     </div>
-</div>
 
-
+    </div>

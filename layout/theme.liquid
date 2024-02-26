@@ -13,15 +13,18 @@
 https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css
 " rel="stylesheet">
     {{ 'app.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" href="path/to/atropos.css" />
     <script src="{{ 'app.js' | asset_url }}" defer></script>
-   
+    
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   </head>
+  {% section 'zone-detection' %}
   <body class="container mx-auto bg-[url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L25zMTQ2NTEtaW1hZ2Uta3d2eWQybmIuanBn.jpg')] bg-cover bg-center bg-no-repeat py-5">
     {% section 'header' %}
     <main role="main">
       {{ content_for_layout }}
     </main>
+    {% section 'cart' %}
   </body>
 </html>
