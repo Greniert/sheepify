@@ -536,6 +536,9 @@ video {
   white-space: nowrap;
   border-width: 0;
 }
+.fixed {
+  position: fixed;
+}
 .absolute {
   position: absolute;
 }
@@ -1002,6 +1005,9 @@ video {
 }
 .bg-\[url\(\'https\:\/\/images\.rawpixel\.com\/image_800\/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L25zMTQ2NTEtaW1hZ2Uta3d2eWQybmIuanBn\.jpg\'\)\] {
   background-image: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L25zMTQ2NTEtaW1hZ2Uta3d2eWQybmIuanBn.jpg');
+}
+.bg-\[url\(\'\'\)\] {
+  background-image: url('');
 }
 .bg-cover {
   background-size: cover;

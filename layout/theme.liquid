@@ -15,13 +15,18 @@ https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css
     {{ 'app.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="path/to/atropos.css" />
     <script src="{{ 'app.js' | asset_url }}" defer></script>
-    
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+      body {
+        background: url('{{ settings.checkout_body_background_image | img_url: 'medium' }}');
+      }
+    </style>
   </head>
   {% section 'zone-detection' %}
-  <body class="container mx-auto bg-fixed bg-cover bg-center bg-no-repeat py-5">
+  <body class="container mx-auto  bg-fixed bg-cover bg-center bg-no-repeat py-5">
     {% section 'header' %}
+    
     <main role="main">
       {{ content_for_layout }}
     </main>
