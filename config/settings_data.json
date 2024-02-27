@@ -1,6 +1,9 @@
 {
   "current": {
+    "checkout_header_image": "shopify:\/\/shop_images\/Background.png",
     "checkout_logo_image": "shopify:\/\/shop_images\/sheeplogo.png",
+    "checkout_logo_position": "left",
+    "checkout_body_background_image": "shopify:\/\/shop_images\/Background.png",
     "sections": {
       "header": {
         "type": "header",
@@ -8,6 +11,16 @@
           "mobile_menu_title": "Menu",
           "logo": "shopify:\/\/shop_images\/logo-extended.png",
           "menu": "main-menu"
+        }
+      },
+      "zone-detection": {
+        "type": "zone-detection",
+        "settings": {
+        }
+      },
+      "cart": {
+        "type": "cart",
+        "settings": {
         }
       }
     },
